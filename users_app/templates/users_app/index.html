@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Todos los Usuarios</h1>
+    <ul>
+        {%for usuario in usuarios%}
+            <li>{{usuarios}}</li>
+        {%endfor%}
+    </ul>
+    <table>
+        <thead>
+            <tr>
+                <th>nombre</th>
+                <th>apellido</th>
+                <th>email</th>
+                <th>edad</th>
+                <th>creado</th>
+                <th>actualizado</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for u in usuarios %}
+            <tr>
+                <td>{{u.nombre}}</td>
+                <td>{{u.apellido}}</td>
+                <td>{{u.email}}</td>
+                <td>{{u.edad}}</td>
+                <td>{{u.creado|date:'d-M-y-H-y:s'}}</td>
+                <td>{{u.actualizado|date:'d-M-y'}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <form action="" method="post">
+        {% csrf_token %}
+        <label for="id-nombre-para-usar-en-front">nombre</label>
+        <input type="text" name="nombre" id="id-nombre-para-usar-en-front">
+        <label for="id-apellido-para-usar-en-front">apellido</label>
+        <input type="text" name="apellido" id="id-apellido-para-usar-en-front">
+        <label for="id-email-para-usar-en-front">email</label>
+        <input type="email" name="email" id="id-email-para-usar-en-front">
+        <label for="id-edad-para-usar-en-front">edad</label>
+        <input type="number" name="edad" id="id-edad-para-usar-en-front">
+        <button type="submit">Crear usuario</button>
+    </form>
+</body>
+</html>
