@@ -37,7 +37,7 @@
             {% endfor %}
         </tbody>
     </table>
-    <form action="" method="post">
+    <form action="/procesar" method="post">
         {% csrf_token %}
         <label for="id-nombre-para-usar-en-front">nombre</label>
         <input type="text" name="nombre" id="id-nombre-para-usar-en-front">

@@ -8,7 +8,9 @@ def index(request):
             'usuarios' : Users.objects.all() #esto es igual que un SELECT usuarios FROM User; 
         }
         return render(request, 'users_app/index.html' , contexto)
-    
+
+def procesar(request):
+
     if request.method == 'POST':
         print(request.POST)
 
@@ -27,6 +29,4 @@ def index(request):
 
         return redirect('/')
         # el redirect reenvia siempre en methodo GET
-
-    
 
